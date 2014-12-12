@@ -5,9 +5,9 @@
         "font-styles": function(locale, options) {
 
             return "<div class='ui icon top left pointing dropdown button'>" +
-              locale.font_styles.title +
+              "<i class='font icon'></i>" + 
               "<div class='menu'>" +
-                "<div class='header'>" +
+                "<div class='item'>" +
                   "<a data-wysihtml5-command='formatBlock' data-wysihtml5-command-value='div' tabindex='-1' role='menuitem'>" + locale.font_styles.normal + "</a>" +
                 "</div>" +
                 "<div class='item'>" +
@@ -26,95 +26,87 @@
         "emphasis": function(locale, options) {
             var size = (options && options.size) ? ' btn-'+options.size : '';
             return "<div class='ui icon buttons'>" +
-                "<div class='ui button' data-wysihtml5-command='bold' title='CTRL+B' tabindex='-1'>" + locale.emphasis.bold + "</a>" +
-                "<div class='ui button' data-wysihtml5-command='italic' title='CTRL+I' tabindex='-1'>" + locale.emphasis.italic + "</a>" +
-                "<div class='ui button' data-wysihtml5-command='underline' title='CTRL+U' tabindex='-1'>" + locale.emphasis.underline + "</a>" +
+                "<div class='ui button' data-wysihtml5-command='bold' title='CTRL+B' tabindex='-1'><i class='bold icon'></i></div>" +
+                "<div class='ui button' data-wysihtml5-command='italic' title='CTRL+I' tabindex='-1'><i class='italic icon'></i></div>" +
+                "<div class='ui button' data-wysihtml5-command='underline' title='CTRL+U' tabindex='-1'><i class='underline icon'></i></div>" +
             "</div>";
         },
 
         "lists": function(locale, options) {
             var size = (options && options.size) ? ' btn-'+options.size : '';
             return "<div class='ui icon buttons'>" +
-                "<div class='ui button' data-wysihtml5-command='insertUnorderedList' title='" + locale.lists.unordered + "' tabindex='-1'><i class='unordered list icon'></i></a>" +
-                "<div class='ui button' data-wysihtml5-command='insertOrderedList' title='" + locale.lists.ordered + "' tabindex='-1'><i class='ordered list icon'></i></a>" +
-                "<div class='ui button' data-wysihtml5-command='Outdent' title='" + locale.lists.outdent + "' tabindex='-1'><i class='outdent icon'></i></a>" +
-                "<div class='ui button' data-wysihtml5-command='Indent' title='" + locale.lists.indent + "' tabindex='-1'><i class='indent icon'></i></a>" +
+                "<div class='ui button' data-wysihtml5-command='insertUnorderedList' title='" + locale.lists.unordered + "' tabindex='-1'><i class='unordered list icon'></i></div>" +
+                "<div class='ui button' data-wysihtml5-command='insertOrderedList' title='" + locale.lists.ordered + "' tabindex='-1'><i class='ordered list icon'></i></div>" +
+                "<div class='ui button' data-wysihtml5-command='Outdent' title='" + locale.lists.outdent + "' tabindex='-1'><i class='outdent icon'></i></div>" +
+                "<div class='ui button' data-wysihtml5-command='Indent' title='" + locale.lists.indent + "' tabindex='-1'><i class='indent icon'></i></div>" +
             "</div>";
         },
 
         "link": function(locale, options) {
             var size = (options && options.size) ? ' btn-'+options.size : '';
             return "<div class='ui icon buttons'>" +
-              "<div class='ui modal'>" +
-              "  <i class='close icon'></i>" +
-              "  <div class='header'>" +
-              locale.link.insert
-              " </div>" +
-              "  <div class='content'>" +
-              "      <input value='http://' class='bootstrap-wysihtml5-insert-link-url'>" +
-              "  </div>" +
-              "  <div class='actions'>" +
-              "   <div class='ui black button'>" + locale.link.cancel + "</div>" +
-              "   <div class='ui positive right labeled icon button'" + locale.link.insert + "</div>" +
-              "  </div>" +
-              "</div>" +
-              "<div class='ui button' data-wysihtml5-command='createLink' title='" + locale.link.insert + "' tabindex='-1'><i class='link icon'></i></a>" +
+              "<div class='ui button' data-wysihtml5-command='createLink' title='" + locale.link.insert + "' tabindex='-1'><i class='link icon'></i></div>" +
+            "</div>" +
+            "<div class='ui modal bootstrap-wysihtml5-insert-link-modal'>" +
+            "  <i class='close icon'></i>" +
+            "  <div class='header'>" +
+            locale.link.insert +
+            " </div>" +
+            "  <div class='content'>" +
+            "      <input value='http://' class='bootstrap-wysihtml5-insert-link-url'>" +
+            "  </div>" +
+            "  <div class='actions'>" +
+            "   <div class='ui black button'>" + locale.link.cancel + "</div>" +
+            "   <div class='ui positive right labeled icon button insert'>" + locale.link.insert + "</div>" +
+            "  </div>" +
             "</div>";
         },
 
         "image": function(locale, options) {
-            var size = (options && options.size) ? ' btn-'+options.size : '';
-            return "<li>" +
-              "<div class='bootstrap-wysihtml5-insert-image-modal modal fade' tabindex='-1' role='dialog' aria-hidden='true'>" +
-                "<div class='modal-dialog'>" +
-                  "<div class='modal-content'>" +
-                    "<div class='modal-header'>" +
-                      "<button type='button' class='close' data-dismiss='modal' aria-hidden='true'>&times;</button>" +
-                      "<h3 class='modal-title'>" + locale.image.insert + "</h3>" +
-                    "</div>" +
-                    "<div class='modal-body'>" +
-                      "<input value='http://' class='bootstrap-wysihtml5-insert-image-url form-control input-lg'>" +
-                    "</div>" +
-                    "<div class='modal-footer'>" +
-                      "<a href='#' class='btn btn-default ' data-dismiss='modal'>" + locale.image.cancel + "</a>" +
-                      "<a href='#' class='btn btn-primary' data-dismiss='modal'>" + locale.image.insert + "</a>" +
-                    "</div>" +
-                  "</div>" +
-                "</div>" +
-              "</div>" +
-              "<a class='btn btn-default " + size + "' data-wysihtml5-command='insertImage' title='" + locale.image.insert + "' tabindex='-1'><i class='glyphicon glyphicon-picture'></i></a>" +
-            "</li>";
+            return "<div class='ui icon button' data-wysihtml5-command='insertImage' title='" + locale.image.insert + "' tabindex='-1'>" +
+              "<i class='image icon'></i></div>" +
+              "<div class='ui modal bootstrap-wysihtml5-insert-image-modal' tabindex='-1'>" +
+              "  <i class='close icon'></i>" +
+              "  <div class='header'>" +
+              locale.image.insert +
+              "  </div>" +
+              "  <div class='content'>" +
+              "   <input value='http://' class='bootstrap-wysihtml5-insert-image-url form-control input-lg'>" +
+              "  </div>" +
+              "  <div class='actions'>" +
+              "   <div class='ui black button'>" + locale.image.cancel + "</div>" +
+              "   <div class='ui positive right labeled icon button insert'>" + locale.image.insert + "</div>" +
+              "  </div>" +
+              "</div>";
         },
 
         "html": function(locale, options) {
             var size = (options && options.size) ? ' btn-'+options.size : '';
-            return "<li>" +
+            return "<div>" +
               "<div class='btn-group'>" +
                 "<a class='btn btn-default " + size + "' data-wysihtml5-action='change_view' title='" + locale.html.edit + "' tabindex='-1'><i class='glyphicon glyphicon-pencil'></i></a>" +
               "</div>" +
-            "</li>";
+            "</div>";
         },
 
         "color": function(locale, options) {
             var size = (options && options.size) ? ' btn-'+options.size : '';
-            return "<li class='dropdown'>" +
-              "<a class='btn btn-default dropdown-toggle" + size + "' data-toggle='dropdown' href='#' tabindex='-1' title='" + locale.colours.title + "'>" +
-                "<span class='current-color'>" + locale.colours.black + "</span>&nbsp;<b class='caret'></b>" +
-              "</a>" +
-              "<ul class='dropdown-menu'>" +
-                "<li><div class='wysihtml5-colors' data-wysihtml5-command-value='black'></div><a class='wysihtml5-colors-title' data-wysihtml5-command='foreColor' data-wysihtml5-command-value='black' role='menuitem'>" + locale.colours.black + "</a></li>" +
-                "<li><div class='wysihtml5-colors' data-wysihtml5-command-value='silver'></div><a class='wysihtml5-colors-title' data-wysihtml5-command='foreColor' data-wysihtml5-command-value='silver' role='menuitem'>" + locale.colours.silver + "</a></li>" +
-                "<li><div class='wysihtml5-colors' data-wysihtml5-command-value='gray'></div><a class='wysihtml5-colors-title' data-wysihtml5-command='foreColor' data-wysihtml5-command-value='gray' role='menuitem'>" + locale.colours.gray + "</a></li>" +
-                "<li><div class='wysihtml5-colors' data-wysihtml5-command-value='maroon'></div><a class='wysihtml5-colors-title' data-wysihtml5-command='foreColor' data-wysihtml5-command-value='maroon' role='menuitem'>" + locale.colours.maroon + "</a></li>" +
-                "<li><div class='wysihtml5-colors' data-wysihtml5-command-value='red'></div><a class='wysihtml5-colors-title' data-wysihtml5-command='foreColor' data-wysihtml5-command-value='red' role='menuitem'>" + locale.colours.red + "</a></li>" +
-                "<li><div class='wysihtml5-colors' data-wysihtml5-command-value='purple'></div><a class='wysihtml5-colors-title' data-wysihtml5-command='foreColor' data-wysihtml5-command-value='purple' role='menuitem'>" + locale.colours.purple + "</a></li>" +
-                "<li><div class='wysihtml5-colors' data-wysihtml5-command-value='green'></div><a class='wysihtml5-colors-title' data-wysihtml5-command='foreColor' data-wysihtml5-command-value='green' role='menuitem'>" + locale.colours.green + "</a></li>" +
-                "<li><div class='wysihtml5-colors' data-wysihtml5-command-value='olive'></div><a class='wysihtml5-colors-title' data-wysihtml5-command='foreColor' data-wysihtml5-command-value='olive' role='menuitem'>" + locale.colours.olive + "</a></li>" +
-                "<li><div class='wysihtml5-colors' data-wysihtml5-command-value='navy'></div><a class='wysihtml5-colors-title' data-wysihtml5-command='foreColor' data-wysihtml5-command-value='navy' role='menuitem'>" + locale.colours.navy + "</a></li>" +
-                "<li><div class='wysihtml5-colors' data-wysihtml5-command-value='blue'></div><a class='wysihtml5-colors-title' data-wysihtml5-command='foreColor' data-wysihtml5-command-value='blue' role='menuitem'>" + locale.colours.blue + "</a></li>" +
-                "<li><div class='wysihtml5-colors' data-wysihtml5-command-value='orange'></div><a class='wysihtml5-colors-title' data-wysihtml5-command='foreColor' data-wysihtml5-command-value='orange' role='menuitem'>" + locale.colours.orange + "</a></li>" +
-              "</ul>" +
-            "</li>";
+            return "<div class='ui icon top left pointing dropdown button'>" +
+                "<span class='current-color'><i class='adjust icon'></i></span>" +
+              "<div class='menu'>" +
+                "<div class='item'><div class='wysihtml5-colors' data-wysihtml5-command-value='black'></div><a class='wysihtml5-colors-title' data-wysihtml5-command='foreColor' data-wysihtml5-command-value='black' role='menuitem'>" + locale.colours.black + "</a></div>" +
+                "<div class='item'><div class='wysihtml5-colors' data-wysihtml5-command-value='silver'></div><a class='wysihtml5-colors-title' data-wysihtml5-command='foreColor' data-wysihtml5-command-value='silver' role='menuitem'>" + locale.colours.silver + "</a></div>" +
+                "<div class='item'><div class='wysihtml5-colors' data-wysihtml5-command-value='gray'></div><a class='wysihtml5-colors-title' data-wysihtml5-command='foreColor' data-wysihtml5-command-value='gray' role='menuitem'>" + locale.colours.gray + "</a></div>" +
+                "<div class='item'><div class='wysihtml5-colors' data-wysihtml5-command-value='maroon'></div><a class='wysihtml5-colors-title' data-wysihtml5-command='foreColor' data-wysihtml5-command-value='maroon' role='menuitem'>" + locale.colours.maroon + "</a></div>" +
+                "<div class='item'><div class='wysihtml5-colors' data-wysihtml5-command-value='red'></div><a class='wysihtml5-colors-title' data-wysihtml5-command='foreColor' data-wysihtml5-command-value='red' role='menuitem'>" + locale.colours.red + "</a></div>" +
+                "<div class='item'><div class='wysihtml5-colors' data-wysihtml5-command-value='purple'></div><a class='wysihtml5-colors-title' data-wysihtml5-command='foreColor' data-wysihtml5-command-value='purple' role='menuitem'>" + locale.colours.purple + "</a></div>" +
+                "<div class='item'><div class='wysihtml5-colors' data-wysihtml5-command-value='green'></div><a class='wysihtml5-colors-title' data-wysihtml5-command='foreColor' data-wysihtml5-command-value='green' role='menuitem'>" + locale.colours.green + "</a></div>" +
+                "<div class='item'><div class='wysihtml5-colors' data-wysihtml5-command-value='olive'></div><a class='wysihtml5-colors-title' data-wysihtml5-command='foreColor' data-wysihtml5-command-value='olive' role='menuitem'>" + locale.colours.olive + "</a></div>" +
+                "<div class='item'><div class='wysihtml5-colors' data-wysihtml5-command-value='navy'></div><a class='wysihtml5-colors-title' data-wysihtml5-command='foreColor' data-wysihtml5-command-value='navy' role='menuitem'>" + locale.colours.navy + "</a></div>" +
+                "<div class='item'><div class='wysihtml5-colors' data-wysihtml5-command-value='blue'></div><a class='wysihtml5-colors-title' data-wysihtml5-command='foreColor' data-wysihtml5-command-value='blue' role='menuitem'>" + locale.colours.blue + "</a></div>" +
+                "<div class='item'><div class='wysihtml5-colors' data-wysihtml5-command-value='orange'></div><a class='wysihtml5-colors-title' data-wysihtml5-command='foreColor' data-wysihtml5-command-value='orange' role='menuitem'>" + locale.colours.orange + "</a></div>" +
+              "</div>" +
+            "</div>";
         }
     };
 
@@ -238,7 +230,7 @@
             var self = this;
             var insertImageModal = toolbar.find('.bootstrap-wysihtml5-insert-image-modal');
             var urlInput = insertImageModal.find('.bootstrap-wysihtml5-insert-image-url');
-            var insertButton = insertImageModal.find('a.btn-primary');
+            var insertButton = insertImageModal.find('.insert');
             var initialValue = urlInput.val();
             var caretBookmark;
 
@@ -270,16 +262,13 @@
                 self.editor.currentView.element.focus();
             });
 
-            toolbar.find('a[data-wysihtml5-command=insertImage]').click(function() {
+            toolbar.find('[data-wysihtml5-command=insertImage]').click(function() {
                 var activeButton = $(this).hasClass("wysihtml5-command-active");
 
                 if (!activeButton) {
                     self.editor.currentView.element.focus(false);
                     caretBookmark = self.editor.composer.selection.getBookmark();
-                    insertImageModal.appendTo('body').modal('show');
-                    insertImageModal.on('click.dismiss.modal', '[data-dismiss="modal"]', function(e) {
-                        e.stopPropagation();
-                    });
+                    insertImageModal.modal('show');
                     return false;
                 }
                 else {
@@ -308,7 +297,7 @@
             var self = this;
             var insertLinkModal = toolbar.find('.bootstrap-wysihtml5-insert-link-modal');
             var urlInput = insertLinkModal.find('.bootstrap-wysihtml5-insert-link-url');
-            var insertButton = insertLinkModal.find('a.btn-primary');
+            var insertButton = insertLinkModal.find('.insert');
             var initialValue = urlInput.val();
             var caretBookmark;
 
@@ -337,24 +326,27 @@
 
             insertButton.click(insertLink);
 
-            insertLinkModal.on('shown', function() {
-                urlInput.focus();
-            });
+            // insertLinkModal.on('shown', function() {
+            //     urlInput.focus();
+            // });
+            //
+            // insertLinkModal.on('hide', function() {
+            //     self.editor.currentView.element.focus();
+            // });
 
-            insertLinkModal.on('hide', function() {
-                self.editor.currentView.element.focus();
-            });
-
-            toolbar.find('a[data-wysihtml5-command=createLink]').click(function() {
+            toolbar.find('[data-wysihtml5-command=createLink]').click(function() {
+                window.te = this;
+                console.log(this);
+                window.lm = insertLinkModal;
                 var activeButton = $(this).hasClass("wysihtml5-command-active");
 
                 if (!activeButton) {
                     self.editor.currentView.element.focus(false);
                     caretBookmark = self.editor.composer.selection.getBookmark();
-                    insertLinkModal.appendTo('body').modal('show');
-                    insertLinkModal.on('click.dismiss.modal', '[data-dismiss="modal"]', function(e) {
-                        e.stopPropagation();
-                    });
+                    insertLinkModal.modal('show');
+                    // insertLinkModal.on('click.dismiss.modal', '[data-dismiss="modal"]', function(e) {
+                    //     e.stopPropagation();
+                    // });
                     return false;
                 }
                 else {

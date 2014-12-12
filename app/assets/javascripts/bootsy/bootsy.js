@@ -241,13 +241,9 @@ Bootsy.Area.prototype.init = function() {
       this.options.customCommandCallback = this.openImagesModal.bind(this);
       this.options.customTemplates = {
         customCommand: function(locale, options) {
-          var size = (options && options.size) ? ' btn-'+options.size : '';
-
-          return  '<li>' +
-                    '<a class="btn btn-default ' + size + '" data-wysihtml5-command="customCommand" title="' + locale.image.insert + '" tabindex="-1">' +
-                      '<span class="glyphicon glyphicon-picture"></span>' +
-                    '</a>' +
-                  '</li>';
+          return  '<div class="ui button" data-wysihtml5-command="customCommand" title="' + locale.image.insert + '" tabindex="-1">' +
+                      '<i class="image icon"></i>' +
+                  '</div>';
         }
       };
 

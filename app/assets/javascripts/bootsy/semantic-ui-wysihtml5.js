@@ -3,65 +3,63 @@
 
     var tpl = {
         "font-styles": function(locale, options) {
-            var size = (options && options.size) ? ' btn-'+options.size : '';
-            return "<li class='dropdown'>" +
-              "<a class='btn btn-default dropdown-toggle" + size + "' data-toggle='dropdown' href='#' title='" + locale.font_styles.title + "'>" +
-              "<i class='glyphicon glyphicon-font'></i>&nbsp;<span class='current-font'>" + locale.font_styles.normal + "</span>&nbsp;<b class='caret'></b>" +
-              "</a>" +
-              "<ul class='dropdown-menu'>" +
-                "<li><a data-wysihtml5-command='formatBlock' data-wysihtml5-command-value='div' tabindex='-1' role='menuitem'>" + locale.font_styles.normal + "</a></li>" +
-                "<li><a data-wysihtml5-command='formatBlock' data-wysihtml5-command-value='h1' tabindex='-1' role='menuitem'>" + locale.font_styles.h1 + "</a></li>" +
-                "<li><a data-wysihtml5-command='formatBlock' data-wysihtml5-command-value='h2' tabindex='-1' role='menuitem'>" + locale.font_styles.h2 + "</a></li>" +
-                "<li><a data-wysihtml5-command='formatBlock' data-wysihtml5-command-value='h3' tabindex='-1' role='menuitem'>" + locale.font_styles.h3 + "</a></li>" +
-              "</ul>" +
-            "</li>";
+
+            return "<div class='ui icon top left pointing dropdown button'>" +
+              locale.font_styles.title +
+              "<div class='menu'>
+                <div class='header'>
+                  <a data-wysihtml5-command='formatBlock' data-wysihtml5-command-value='div' tabindex='-1' role='menuitem'>" + locale.font_styles.normal + "</a>
+                </div>
+                <div class='item'>
+                  <a data-wysihtml5-command='formatBlock' data-wysihtml5-command-value='h1' tabindex='-1' role='menuitem'>" + locale.font_styles.h1 + "</a>
+                </div>
+                <div class='item'>
+                  <a data-wysihtml5-command='formatBlock' data-wysihtml5-command-value='h2' tabindex='-1' role='menuitem'>" + locale.font_styles.h2 + "</a>
+                </div>
+                <div class='item'>
+                  <a data-wysihtml5-command='formatBlock' data-wysihtml5-command-value='h3' tabindex='-1' role='menuitem'>" + locale.font_styles.h3 + "</a>
+                </div>
+              </div>
+            </div>";
         },
 
         "emphasis": function(locale, options) {
             var size = (options && options.size) ? ' btn-'+options.size : '';
-            return "<li>" +
-              "<div class='btn-group'>" +
-                "<a class='btn btn-default " + size + "' data-wysihtml5-command='bold' title='CTRL+B' tabindex='-1'>" + locale.emphasis.bold + "</a>" +
-                "<a class='btn btn-default " + size + "' data-wysihtml5-command='italic' title='CTRL+I' tabindex='-1'>" + locale.emphasis.italic + "</a>" +
-                "<a class='btn btn-default " + size + "' data-wysihtml5-command='underline' title='CTRL+U' tabindex='-1'>" + locale.emphasis.underline + "</a>" +
-              "</div>" +
-            "</li>";
+            return "<div class='ui icon buttons'>" +
+                "<div class='ui button' data-wysihtml5-command='bold' title='CTRL+B' tabindex='-1'>" + locale.emphasis.bold + "</a>" +
+                "<div class='ui button' data-wysihtml5-command='italic' title='CTRL+I' tabindex='-1'>" + locale.emphasis.italic + "</a>" +
+                "<div class='ui button' data-wysihtml5-command='underline' title='CTRL+U' tabindex='-1'>" + locale.emphasis.underline + "</a>" +
+            "</div>";
         },
 
         "lists": function(locale, options) {
             var size = (options && options.size) ? ' btn-'+options.size : '';
-            return "<li>" +
-              "<div class='btn-group'>" +
-                "<a class='btn btn-default " + size + "' data-wysihtml5-command='insertUnorderedList' title='" + locale.lists.unordered + "' tabindex='-1'><i class='glyphicon glyphicon-list'></i></a>" +
-                "<a class='btn btn-default " + size + "' data-wysihtml5-command='insertOrderedList' title='" + locale.lists.ordered + "' tabindex='-1'><i class='glyphicon glyphicon-th-list'></i></a>" +
-                "<a class='btn btn-default " + size + "' data-wysihtml5-command='Outdent' title='" + locale.lists.outdent + "' tabindex='-1'><i class='glyphicon glyphicon-indent-left'></i></a>" +
-                "<a class='btn btn-default " + size + "' data-wysihtml5-command='Indent' title='" + locale.lists.indent + "' tabindex='-1'><i class='glyphicon glyphicon-indent-right'></i></a>" +
-              "</div>" +
-            "</li>";
+            return "<div class='ui icon buttons'>" +
+                "<div class='ui button' data-wysihtml5-command='insertUnorderedList' title='" + locale.lists.unordered + "' tabindex='-1'><i class='unordered list icon'></i></a>" +
+                "<div class='ui button' data-wysihtml5-command='insertOrderedList' title='" + locale.lists.ordered + "' tabindex='-1'><i class='ordered list icon'></i></a>" +
+                "<div class='ui button' data-wysihtml5-command='Outdent' title='" + locale.lists.outdent + "' tabindex='-1'><i class='outdent icon'></i></a>" +
+                "<div class='ui button' data-wysihtml5-command='Indent' title='" + locale.lists.indent + "' tabindex='-1'><i class='indent icon'></i></a>" +
+            "</div>";
         },
 
         "link": function(locale, options) {
             var size = (options && options.size) ? ' btn-'+options.size : '';
-            return "<li>" +
-              "<div class='bootstrap-wysihtml5-insert-link-modal modal fade' tabindex='-1' role='dialog' aria-hidden='true'>" +
-                "<div class='modal-dialog'>" +
-                  "<div class='modal-content'>" +
-                    "<div class='modal-header'>" +
-                      "<button type='button' class='close' data-dismiss='modal' aria-hidden='true'>&times;</button>" +
-                      "<h3 class='modal-title'>" + locale.link.insert + "</h3>" +
-                    "</div>" +
-                    "<div class='modal-body'>" +
-                      "<input value='http://' class='bootstrap-wysihtml5-insert-link-url form-control input-lg'>" +
-                    "</div>" +
-                    "<div class='modal-footer'>" +
-                      "<a href='#' class='btn btn-default' data-dismiss='modal'>" + locale.link.cancel + "</a>" +
-                      "<a href='#' class='btn btn-primary' data-dismiss='modal'>" + locale.link.insert + "</a>" +
-                    "</div>" +
-                  "</div>" +
-                "</div>" +
-              "</div>" +
-              "<a class='btn btn-default " + size + "' data-wysihtml5-command='createLink' title='" + locale.link.insert + "' tabindex='-1'><i class='glyphicon glyphicon-share'></i></a>" +
-            "</li>";
+            return "<div class='ui icon buttons'>" +
+              "<div class='ui modal'>" +
+              "  <i class='close icon'></i>" +
+              "  <div class='header'>" +
+              locale.link.insert
+              " </div>" +
+              "  <div class='content'>" +
+              "      <input value='http://' class='bootstrap-wysihtml5-insert-link-url'>" +
+              "  </div>" +
+              "  <div class='actions'>" +
+              "   <div class='ui black button'>" + locale.link.cancel + "</div>" +
+              "   <div class='ui positive right labeled icon button'" + locale.link.insert + "</div>" +
+              "  </div>" +
+              "</div>" +              
+              "<div class='ui button' data-wysihtml5-command='createLink' title='" + locale.link.insert + "' tabindex='-1'><i class='link icon'></i></a>" +
+            "</div>";
         },
 
         "image": function(locale, options) {
@@ -169,7 +167,7 @@
 
         createToolbar: function(el, options) {
             var self = this;
-            var toolbar = $("<ul/>", {
+            var toolbar = $("<div/>", {
                 'class' : "wysihtml5-toolbar",
                 'style': "display:none"
             });

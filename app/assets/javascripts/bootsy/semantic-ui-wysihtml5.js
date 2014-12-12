@@ -6,21 +6,21 @@
 
             return "<div class='ui icon top left pointing dropdown button'>" +
               locale.font_styles.title +
-              "<div class='menu'>
-                <div class='header'>
-                  <a data-wysihtml5-command='formatBlock' data-wysihtml5-command-value='div' tabindex='-1' role='menuitem'>" + locale.font_styles.normal + "</a>
-                </div>
-                <div class='item'>
-                  <a data-wysihtml5-command='formatBlock' data-wysihtml5-command-value='h1' tabindex='-1' role='menuitem'>" + locale.font_styles.h1 + "</a>
-                </div>
-                <div class='item'>
-                  <a data-wysihtml5-command='formatBlock' data-wysihtml5-command-value='h2' tabindex='-1' role='menuitem'>" + locale.font_styles.h2 + "</a>
-                </div>
-                <div class='item'>
-                  <a data-wysihtml5-command='formatBlock' data-wysihtml5-command-value='h3' tabindex='-1' role='menuitem'>" + locale.font_styles.h3 + "</a>
-                </div>
-              </div>
-            </div>";
+              "<div class='menu'>" +
+                "<div class='header'>" +
+                  "<a data-wysihtml5-command='formatBlock' data-wysihtml5-command-value='div' tabindex='-1' role='menuitem'>" + locale.font_styles.normal + "</a>" +
+                "</div>" +
+                "<div class='item'>" +
+                  "<a data-wysihtml5-command='formatBlock' data-wysihtml5-command-value='h1' tabindex='-1' role='menuitem'>" + locale.font_styles.h1 + "</a>" +
+                "</div>" +
+                "<div class='item'>" +
+                  "<a data-wysihtml5-command='formatBlock' data-wysihtml5-command-value='h2' tabindex='-1' role='menuitem'>" + locale.font_styles.h2 + "</a>" +
+                "</div>" +
+                "<div class='item'>" +
+                  "<a data-wysihtml5-command='formatBlock' data-wysihtml5-command-value='h3' tabindex='-1' role='menuitem'>" + locale.font_styles.h3 + "</a>" +
+                "</div>" +
+              "</div>" +
+            "</div>";
         },
 
         "emphasis": function(locale, options) {
@@ -57,7 +57,7 @@
               "   <div class='ui black button'>" + locale.link.cancel + "</div>" +
               "   <div class='ui positive right labeled icon button'" + locale.link.insert + "</div>" +
               "  </div>" +
-              "</div>" +              
+              "</div>" +
               "<div class='ui button' data-wysihtml5-command='createLink' title='" + locale.link.insert + "' tabindex='-1'><i class='link icon'></i></a>" +
             "</div>";
         },
